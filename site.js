@@ -10,13 +10,6 @@
     else if(h==='#'){a.classList.add('dead')}
   });
   document.querySelectorAll('button[type=submit]').forEach(function(b){b.classList.add('dead')});
-  document.addEventListener('click',function(e){
-    if(e.target.closest('.hot')) return;
-    document.body.classList.remove('hint');
-    void document.body.offsetWidth;
-    document.body.classList.add('hint');
-    setTimeout(function(){document.body.classList.remove('hint')},2400);
-  });
   document.querySelectorAll('[data-pillgroup]').forEach(function(g){
     g.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){
       g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});
