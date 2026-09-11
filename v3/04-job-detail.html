@@ -21,7 +21,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
-.jobhead{background:linear-gradient(180deg,#CDEDEE 0%,#E4F5F6 48%,var(--page) 92%);padding:34px 0}
+.jobhead{background:linear-gradient(180deg,#CDEDEE 0%,#E4F5F6 55%,var(--page) 96%);padding:34px 0 0}
+.jobhead__co{font-weight:700;color:var(--text-muted);margin-top:6px}
+.jobhead__co a{color:var(--teal-deep);text-decoration:none}
+.jobhead__meta{margin-top:16px;background:#fff;border:1px solid var(--line-soft);border-radius:14px;padding:13px 18px;
+color:var(--navy);font-weight:600}
+.jobhead__meta span svg{color:var(--teal-deep)}
+.jobhead__meta span:nth-child(2) svg{color:var(--sun-1)}
+.jobhead__meta span:nth-child(4) svg{color:var(--teal-1)}
+.jobhead__meta span:nth-child(5) svg{color:var(--coral)}
+.taxo{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-top:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.taxo__label{font-family:var(--font-h);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.taxo__label:not(:first-child){margin-left:12px}
+.taxo__chip{border:1px solid var(--line);background:#fff;border-radius:var(--r-pill);padding:6px 15px;font-size:.86rem;font-weight:600;color:var(--navy);text-decoration:none}
+.taxo__chip--skill{border-color:var(--teal-2);color:var(--teal-deep)}
+@media(max-width:600px){.taxo{gap:8px}.taxo__label{flex:0 0 100%;margin-left:0!important}}
 .jl{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
 .jl__main{flex:3 1 540px}
 .jl__side{flex:1 1 300px;position:sticky;top:88px}
@@ -29,6 +43,10 @@
 .applybox ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:14px 0 18px;font-size:.92rem;color:var(--text-muted)}
 .applybox li{display:flex;gap:8px;align-items:flex-start}
 .applybox li svg{color:var(--teal-deep);margin-top:3px}
+.applybox__row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.applybox__note{display:flex;gap:9px;align-items:flex-start;margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:.85rem;color:var(--text-muted)}
+.applybox__note svg{flex:none;margin-top:2px;color:var(--sun-1)}
+.applybox__row .btn{gap:8px}
 .prose h2{font-size:1.3rem;margin:26px 0 10px}
 .prose p,.prose li{color:var(--text-muted)}
 .prose ul{margin-left:20px;display:flex;flex-direction:column;gap:6px}
@@ -68,6 +86,8 @@
 <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></symbol>
 <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 7l10 6 10-6"/></symbol>
 <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 6.6a5 5 0 00-7.1 0L12 8.3l-1.7-1.7a5 5 0 10-7.1 7.1l8.8 8.8 8.8-8.8a5 5 0 000-7.1z"/></symbol>
 <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></symbol>
 <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
 <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
@@ -100,13 +120,21 @@
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
 <span class="pill pill-first pill-flag" title="This employer also considers candidates with no experience"><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg><span class="sr-only">Open to candidates with no experience</span></span>
 <span class="pill pill-type">Full-time</span>
-<span class="pill" style="background:var(--steel-tint);color:var(--steel)">Training given</span>
 </div>
 <h1 style="font-size:clamp(1.8rem,3vw + .8rem,2.6rem)">Shop Assistant, Bagatelle</h1>
-<p style="font-weight:700;color:var(--text-muted);margin-top:6px">Kendra Retail Ltd</p>
-<div class="job-card__meta" style="margin-top:14px">
-<span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Moka</span><span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 14,000 to Rs 17,000</span>
+<p class="jobhead__co">at <a href="#">Kendra Retail Ltd</a></p>
+<div class="job-card__meta jobhead__meta">
+<span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Moka</span><span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 14,000 &#8211; Rs 17,000</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>Shifts, 5 days a week</span><span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Posted Sep 8, 2026</span><span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Closing 12/10/2026</span>
+</div>
+<div class="taxo">
+<span class="taxo__label">Sector</span>
+<a class="taxo__chip" href="#">Retail / Wholesale</a>
+<span class="taxo__label">Skills</span>
+<a class="taxo__chip taxo__chip--skill" href="#">Shop Assistant</a>
+<a class="taxo__chip taxo__chip--skill" href="#">Sales Assistant</a>
+<a class="taxo__chip taxo__chip--skill" href="#">Store Crew</a>
+<a class="taxo__chip taxo__chip--skill" href="#">Cashier</a>
 </div>
 </div>
 </section>
@@ -144,15 +172,18 @@
 </div>
 <aside class="jl__side">
 <div class="applybox">
-<h3>Apply in 60 seconds</h3>
+<h3>Apply for this job</h3>
 <ul>
-<li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> No CV needed for this job</li>
-<li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Four questions, that is all</li>
+<li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Your MyJob profile is your application</li>
 <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> The employer replies through MyJob</li>
+<li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Follow it from sent to answered</li>
 </ul>
 <a class="btn btn-sun btn-block" href="09-join-first-job.html">Apply now</a>
-<a class="btn btn-ghost btn-block btn-sm" href="#" style="margin-top:10px">Save this job</a>
-<p style="font-size:.85rem;color:var(--text-muted);margin-top:14px">Once you apply you can follow your application here, from sent to answered.</p>
+<div class="applybox__row">
+<a class="btn btn-ghost btn-sm" href="#"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>Save</a>
+<a class="btn btn-ghost btn-sm" href="#"><svg class="icon" aria-hidden="true"><use href="#i-share"></use></svg>Share</a>
+</div>
+<p class="applybox__note"><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg><span>This employer accepts candidates with no experience, so a short profile is enough.</span></p>
 </div>
 <div class="card" style="margin-top:16px">
 <h3 style="font-size:1rem;margin-bottom:8px">Similar first jobs</h3>

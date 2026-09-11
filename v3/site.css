@@ -164,6 +164,9 @@ clip-path:polygon(0 0,100% 0,calc(100% - 9px) 50%,100% 100%,0 100%)}
 .tile-mada{background:#CFEAEC;border-color:#A9D9DD}
 .pill-mada{background:var(--teal-1);color:var(--navy)}
 .co-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.more{margin-top:12px}
+.more a{display:inline-flex;align-items:center;gap:7px;color:var(--teal-deep);text-decoration:none;font-weight:700;font-size:.92rem}
+.more a svg{width:13px;height:13px}
 @media(max-width:1024px){.co-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.co-grid{grid-template-columns:1fr}}
 .co-card{display:flex;align-items:center;gap:10px;min-width:0;background:#fff;border:1px solid var(--line-soft);border-radius:12px;padding:8px 13px;text-decoration:none;color:var(--text);font-size:.88rem;transition:border-color .18s var(--ease),transform .18s var(--ease)}
