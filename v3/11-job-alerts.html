@@ -162,7 +162,7 @@ onclick="qnames('g-cat','sum-cat','');qstep(2)">Continue</button>
 onclick="qnames('g-reg','sum-reg','Anywhere in Mauritius');qnames('g-freq','sum-freq','');qstep(3)">Continue</button>
 <button class="qback" type="button" onclick="qstep(1)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Back</button>
 </div>
-<div class="qstep">
+<div class="qstep" data-bars="3" data-label="Step 3 of 3">
 <h2>Where shall we send them?</h2>
 <p>Your mobile number is enough. We send a 4 digit code to confirm it is you.</p>
 <div class="qf">
@@ -177,12 +177,20 @@ onclick="qnames('g-reg','sum-reg','Anywhere in Mauritius');qnames('g-freq','sum-
 <label for="em3">Email, if you want them there too</label>
 <input id="em3" type="email" placeholder="you@example.com" autocomplete="email">
 </div>
-<div class="qotp" style="margin-top:18px"><input id="a1" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1"><input id="a2" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2"><input id="a3" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3"><input id="a4" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4"></div>
-<p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span>Type the code we have just sent you. It sets up your account at the same time.</span></p>
-<button class="btn btn-teal btn-block qcta" type="button" onclick="qstep(4)">Turn on my alerts</button>
+<button class="btn btn-teal btn-block qcta" type="button"
+onclick="qecho('mob3','sent-to','your mobile');qstep(4)">Send me a code</button>
+<p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg><span>Your number is your account. No password to remember, and we never show it to employers.</span></p>
 <button class="qback" type="button" onclick="qstep(2)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Back</button>
 </div>
-<div class="qstep qdone">
+<div class="qstep" data-bars="3" data-label="Step 3 of 3">
+<h2>Enter the 4 digit code</h2>
+<p>Sent by SMS to <b id="sent-to">your mobile</b>. It sets up your account at the same time.</p>
+<div class="qotp"><input id="a1" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1"><input id="a2" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2"><input id="a3" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3"><input id="a4" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4"></div>
+<p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><span>Nothing yet? <a href="#" onclick="return false">Send it again</a>, or check the number you typed.</span></p>
+<button class="btn btn-teal btn-block qcta" type="button" onclick="qstep(5)">Turn on my alerts</button>
+<button class="qback" type="button" onclick="qstep(3)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Change my number</button>
+</div>
+<div class="qstep qdone" data-bars="3" data-label="All done">
 <span class="tick-lg"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>
 <h2>Your alerts are on</h2>
 <p>The next matching job comes straight to your phone.</p>
@@ -237,11 +245,20 @@ function qstep(n){
 var box=document.getElementById('qbox'),i;
 var panes=box.querySelectorAll('.qstep');
 for(i=0;i<panes.length;i++){panes[i].classList.toggle('on',i===n-1)}
-var bars=box.querySelectorAll('.qprog span');
-for(i=0;i<bars.length;i++){bars[i].classList.toggle('on',i<n)}
+var pane=panes[n-1],bars=box.querySelectorAll('.qprog span');
+var fill=pane&&pane.getAttribute('data-bars')?parseInt(pane.getAttribute('data-bars'),10):n;
+for(i=0;i<bars.length;i++){bars[i].classList.toggle('on',i<fill)}
 var lab=document.getElementById('qlabel');
-if(lab){lab.textContent=n>bars.length?'All done':'Step '+n+' of '+bars.length}
+if(lab){
+var set=pane&&pane.getAttribute('data-label');
+lab.textContent=set||(fill>bars.length?'All done':'Step '+fill+' of '+bars.length);
+}
 window.scrollTo({top:0,behavior:'smooth'});
+}
+function qecho(inputId,outId,fallback){
+var el=document.getElementById(inputId),out=document.getElementById(outId);
+if(!el||!out)return;
+out.textContent=el.value?el.value:fallback;
 }
 function qsel(groupId,btn,single){
 var all=document.getElementById(groupId).querySelectorAll('.opt'),i;

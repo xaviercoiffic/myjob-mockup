@@ -243,11 +243,20 @@ function qstep(n){
 var box=document.getElementById('qbox'),i;
 var panes=box.querySelectorAll('.qstep');
 for(i=0;i<panes.length;i++){panes[i].classList.toggle('on',i===n-1)}
-var bars=box.querySelectorAll('.qprog span');
-for(i=0;i<bars.length;i++){bars[i].classList.toggle('on',i<n)}
+var pane=panes[n-1],bars=box.querySelectorAll('.qprog span');
+var fill=pane&&pane.getAttribute('data-bars')?parseInt(pane.getAttribute('data-bars'),10):n;
+for(i=0;i<bars.length;i++){bars[i].classList.toggle('on',i<fill)}
 var lab=document.getElementById('qlabel');
-if(lab){lab.textContent=n>bars.length?'All done':'Step '+n+' of '+bars.length}
+if(lab){
+var set=pane&&pane.getAttribute('data-label');
+lab.textContent=set||(fill>bars.length?'All done':'Step '+fill+' of '+bars.length);
+}
 window.scrollTo({top:0,behavior:'smooth'});
+}
+function qecho(inputId,outId,fallback){
+var el=document.getElementById(inputId),out=document.getElementById(outId);
+if(!el||!out)return;
+out.textContent=el.value?el.value:fallback;
 }
 function qsel(groupId,btn,single){
 var all=document.getElementById(groupId).querySelectorAll('.opt'),i;
