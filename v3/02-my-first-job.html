@@ -29,8 +29,12 @@
 .fact{flex:1 1 200px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
 .fact b{display:block;font-family:var(--font-h);font-size:1.6rem;color:var(--teal-deep);line-height:1.1}
 .fact span{font-size:.9rem;color:var(--text-muted)}
-.school{background:linear-gradient(150deg,var(--navy),var(--navy-soft));color:#fff;border-radius:var(--r-lg);padding:34px;display:flex;flex-wrap:wrap;gap:28px;align-items:center}
-.school > div{flex:1 1 320px}
+.school{background:linear-gradient(150deg,var(--navy),var(--navy-soft));color:#fff;border-radius:var(--r-lg);overflow:hidden;display:grid;grid-template-columns:240px 1fr}
+.school__img{position:relative;min-height:100%}
+.school__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.school__pad{display:flex;flex-wrap:wrap;gap:28px;align-items:center;padding:34px}
+.school__pad > div{flex:1 1 300px}
+@media(max-width:900px){.school{grid-template-columns:1fr}.school__img{min-height:230px}.school__pad{padding:24px}}
 .school h2{color:#fff}
 .school p{color:#BFD3E2}
 .selectrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
@@ -173,6 +177,10 @@
 <section class="section-tight">
 <div class="container">
 <div class="school reveal">
+<div class="school__img">
+<img src="img/student-school.jpg" alt="A student in Mauritius with a notebook and a backpack" width="740" height="1110" loading="lazy">
+</div>
+<div class="school__pad">
 <div>
 <h2>Still at school or studying?</h2>
 <p style="margin-top:10px">Tell us where you are now and when you finish. We will keep in touch, tell you what your studies typically lead to, and send you the right jobs when the time comes. Nothing to fill in twice.</p>
@@ -191,6 +199,7 @@
 <button class="btn btn-sun" type="submit">Keep me posted</button>
 </div>
 </form>
+</div>
 </div>
 </div>
 </div>
