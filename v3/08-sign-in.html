@@ -53,7 +53,7 @@
 .auth__back:hover{color:var(--teal-deep)}
 .auth__back svg{transform:rotate(180deg)}
 .auth__form{width:100%;max-width:520px}
-.auth__form h1{font-size:clamp(1.8rem,2vw + 1rem,2.4rem)}
+.auth__form h1,.auth__form h2{font-size:clamp(1.8rem,2vw + 1rem,2.4rem)}
 .auth-sub{color:var(--text-muted);font-size:.98rem;margin-top:8px}
 .f{margin-bottom:16px}
 .f > label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
@@ -192,7 +192,7 @@
 </div>
 <div class="stepv" id="t2">
 <button class="back" type="button" id="backtot1">&larr; Back to sign in</button>
-<h1 style="margin-top:16px">Enter your code</h1>
+<h2 style="margin-top:16px">Enter your code</h2>
 <p class="auth-sub">We have sent a 4 digit code to <strong id="snum">+230 5xxx xxxx</strong>. No password needed.</p>
 <form onsubmit="return false" novalidate>
 <div class="otp">
@@ -207,7 +207,7 @@
 </div>
 <div class="stepv" id="t3">
 <span class="tick-lg"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>
-<h1>You are signed in</h1>
+<h2>You are signed in</h2>
 <p class="auth-sub">Two employers have looked at your applications this week.</p>
 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
 <a class="btn btn-sun" href="03-my-first-job-jobs.html">Browse jobs</a>
@@ -218,6 +218,7 @@
 </div>
 </section>
 </main>
+<script src="site.js"></script>
 <script>
 function pwToggle(inputId,btnId){
 var pw=document.getElementById(inputId),t=document.getElementById(btnId);
@@ -228,28 +229,15 @@ pw.type=show?'text':'password';
 t.setAttribute('aria-label',show?'Hide password':'Show password');
 });
 }
-function otpGroup(ids){
-ids.forEach(function(id,i){
-var el=document.getElementById(id);
-if(!el)return;
-el.addEventListener('input',function(){
-el.value=el.value.replace(/[^0-9]/g,'');
-if(el.value&&i<ids.length-1){document.getElementById(ids[i+1]).focus()}
-});
-el.addEventListener('keydown',function(e){
-if(e.key==='Backspace'&&!el.value&&i>0){document.getElementById(ids[i-1]).focus()}
-});
-});
-}
 function stepper(ids){
 return function(id){
 ids.forEach(function(s){document.getElementById(s).classList.toggle('on',s===id)});
-window.scrollTo({top:0,behavior:'smooth'});
+var pane=document.getElementById(id);
+stepFocus(pane,pane);
 };
 }
 (function(){
 pwToggle('spw','spwtoggle');
-otpGroup(['c1','c2','c3','c4']);
 var g=document.querySelector('[data-authtabs]');
 g.querySelectorAll('button').forEach(function(b){
 b.addEventListener('click',function(){
@@ -262,6 +250,7 @@ document.getElementById(b.getAttribute('data-target')).hidden=false;
 });
 });
 var show=stepper(['t1','t2','t3']);
+otpGroup(['c1','c2','c3','c4'],function(){show('t3')});
 document.getElementById('codebtn').addEventListener('click',function(){
 var n=document.getElementById('stel').value.trim();
 document.getElementById('snum').textContent=document.getElementById('scc').value+' '+(n||'5xxx xxxx');
@@ -272,6 +261,5 @@ document.getElementById('codeverify').addEventListener('click',function(){show('
 document.getElementById('signinbtn').addEventListener('click',function(){show('t3')});
 })();
 </script>
-<script src="site.js"></script>
 </body>
 </html>

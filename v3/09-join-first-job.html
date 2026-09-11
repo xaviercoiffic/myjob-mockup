@@ -151,7 +151,7 @@ font-family:var(--font-b);font-size:.93rem;font-weight:600;color:var(--navy);cur
 <div class="qbox qbox--first" id="qbox">
 <p class="qprog-label" id="qlabel">Step 1 of 3</p>
 <div class="qprog" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
-<div class="qstep on">
+<form class="qstep on" onsubmit="qstep(2);return false" novalidate>
 <h2>Start with your name and number</h2>
 <p>Two fields, then a code by SMS. No CV and no long form.</p>
 <div class="sso">
@@ -172,18 +172,18 @@ font-family:var(--font-b);font-size:.93rem;font-weight:600;color:var(--navy);cur
 <input id="mob" type="tel" inputmode="numeric" placeholder="5xxx xxxx" autocomplete="tel">
 </div>
 </div>
-<button class="btn btn-sun btn-block qcta" type="button" onclick="qstep(2)">Send me a code</button>
+<button class="btn btn-sun btn-block qcta" type="submit">Send me a code</button>
 <p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg><span>Your number is your account. No password to remember, and we never show it on your applications.</span></p>
-</div>
-<div class="qstep">
+</form>
+<form class="qstep" onsubmit="qstep(3);return false" novalidate>
 <h2>Enter the 4 digit code</h2>
 <p>We have sent it by SMS to your mobile. It arrives in a few seconds.</p>
 <div class="qotp"><input id="o1" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1"><input id="o2" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2"><input id="o3" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3"><input id="o4" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4"></div>
 <p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><span>Nothing yet? <a href="#" onclick="return false">Send it again</a>, or check the number you typed.</span></p>
-<button class="btn btn-sun btn-block qcta" type="button" onclick="qstep(3)">Confirm</button>
+<button class="btn btn-sun btn-block qcta" type="submit">Confirm</button>
 <button class="qback" type="button" onclick="qstep(1)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Change my number</button>
-</div>
-<div class="qstep">
+</form>
+<form class="qstep" onsubmit="qnames('g-work','sum-work','');qstep(4);return false" novalidate>
 <h2>What kind of work are you after?</h2>
 <p>Pick as many as you like. We use this to show you the right jobs first.</p>
 <div class="optgrid" id="g-work"><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-work',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Shop and retail</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-work',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Kitchen and restaurant</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-work',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Hotel and reception</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-work',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Office and admin</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-work',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Call centre</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-work',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Warehouse and delivery</span></button></div>
@@ -197,10 +197,9 @@ font-family:var(--font-b);font-size:.93rem;font-weight:600;color:var(--navy);cur
 <option>Rivi&#232;re du Rempart</option><option>Rodrigues</option>
 </select>
 </div>
-<button class="btn btn-sun btn-block qcta" type="button" data-cta="g-work" disabled
-onclick="qnames('g-work','sum-work','');qstep(4)">Create my account</button>
+<button class="btn btn-sun btn-block qcta" type="submit" data-cta="g-work" disabled>Create my account</button>
 <button class="qback" type="button" onclick="qstep(2)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Back</button>
-</div>
+</form>
 <div class="qstep qdone">
 <span class="tick-lg"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>
 <h2>Your account is ready</h2>
@@ -247,6 +246,7 @@ onclick="qnames('g-work','sum-work','');qstep(4)">Create my account</button>
 <p class="footer-note">Myjob is a registered trademark of My Web Ltd under company number C06067547 registered in the Republic of Mauritius. All rights reserved. 2026. Concept mockup prepared for review.</p>
 </div>
 </footer>
+<script src="site.js"></script>
 <script>
 function qstep(n){
 var box=document.getElementById('qbox'),i;
@@ -260,7 +260,7 @@ if(lab){
 var set=pane&&pane.getAttribute('data-label');
 lab.textContent=set||(fill>bars.length?'All done':'Step '+fill+' of '+bars.length);
 }
-window.scrollTo({top:0,behavior:'smooth'});
+stepFocus(pane,box);
 }
 function qecho(inputId,outId,fallback){
 var el=document.getElementById(inputId),out=document.getElementById(outId);
@@ -301,20 +301,6 @@ var sel=g.querySelectorAll('.opt[aria-pressed=true] .opt__name'),names=[];
 for(var i=0;i<sel.length;i++){names.push(sel[i].textContent.trim())}
 out.textContent=names.length?names.join(', '):fallback;
 }
-function qotp(ids){
-ids.forEach(function(id,i){
-var el=document.getElementById(id);
-if(!el)return;
-el.addEventListener('input',function(){
-el.value=el.value.replace(/[^0-9]/g,'');
-if(el.value&&i<ids.length-1){document.getElementById(ids[i+1]).focus()}
-});
-el.addEventListener('keydown',function(e){
-if(e.key==='Backspace'&&!el.value&&i>0){document.getElementById(ids[i-1]).focus()}
-});
-});
-}
-qotp(['o1','o2','o3','o4']);</script>
-<script src="site.js"></script>
+otpGroup(['o1','o2','o3','o4'],function(){qstep(3)});</script>
 </body>
 </html>

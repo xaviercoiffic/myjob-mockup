@@ -151,15 +151,14 @@ font-family:var(--font-b);font-size:.93rem;font-weight:600;color:var(--navy);cur
 <div class="qbox " id="qbox">
 <p class="qprog-label" id="qlabel">Step 1 of 3</p>
 <div class="qprog" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
-<div class="qstep on">
+<form class="qstep on" onsubmit="qnames('g-cat','sum-cat','');qstep(2);return false" novalidate>
 <h2>Which jobs do you want to hear about?</h2>
 <p>Pick your categories. You can change them at any time from your account.</p>
 <div class="optgrid" id="g-cat"><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Accounting / Finance</span><b>199</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Administrative / Clerical</span><b>86</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Banking</span><b>13</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Call Centres / BPO</span><b>95</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Construction / Architecture</span><b>41</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Education / Training</span><b>5</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Engineering / Mechanics</span><b>85</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Food / Beverages / Catering</span><b>117</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Healthcare / Medical</span><b>17</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">HR / Recruiting</span><b>38</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">ICT / IT / Web</span><b>111</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Logistics / Warehousing</span><b>83</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Manufacturing / Production</span><b>35</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Marketing / Sales</span><b>143</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">My First Job</span><b>214</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Seasonal jobs</span><b>168</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Security / Protective Services</span><b>7</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Spa</span><b>10</b></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-cat',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Tourism / Travel</span><b>238</b></button></div>
 <p class="qcount" data-count="g-cat">Choose at least one to carry on.</p>
-<button class="btn btn-teal btn-block qcta" type="button" data-cta="g-cat" disabled
-onclick="qnames('g-cat','sum-cat','');qstep(2)">Continue</button>
-</div>
-<div class="qstep">
+<button class="btn btn-teal btn-block qcta" type="submit" data-cta="g-cat" disabled>Continue</button>
+</form>
+<form class="qstep" onsubmit="qnames('g-reg','sum-reg','Anywhere in Mauritius');qnames('g-freq','sum-freq','');qstep(3);return false" novalidate>
 <h2>Where do you want to work?</h2>
 <p>Choose the regions you can reach. Most people start with one or two.</p>
 <div class="optgrid" id="g-reg"><button class="opt" type="button" aria-pressed="true" data-any="1" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Anywhere in Mauritius</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Plaines Wilhems</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Port Louis</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Moka</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Pamplemousses</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Black River</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Flacq</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Grand Port</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Savanne</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Rivi&#232;re du Rempart</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Rodrigues</span></button></div>
@@ -167,11 +166,10 @@ onclick="qnames('g-cat','sum-cat','');qstep(2)">Continue</button>
 <h2 style="margin-top:26px">How often?</h2>
 <p>New jobs go live every morning. SMS alerts are free.</p>
 <div class="optgrid-3 optgrid" id="g-freq"><button class="opt opt-radio" type="button" aria-pressed="true" onclick="qsel('g-freq',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">As soon as a job is posted</span></button><button class="opt opt-radio" type="button" aria-pressed="false" onclick="qsel('g-freq',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Once a day</span></button><button class="opt opt-radio" type="button" aria-pressed="false" onclick="qsel('g-freq',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Once a week</span></button></div>
-<button class="btn btn-teal btn-block qcta" type="button" data-cta="g-reg"
-onclick="qnames('g-reg','sum-reg','Anywhere in Mauritius');qnames('g-freq','sum-freq','');qstep(3)">Continue</button>
+<button class="btn btn-teal btn-block qcta" type="submit" data-cta="g-reg">Continue</button>
 <button class="qback" type="button" onclick="qstep(1)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Back</button>
-</div>
-<div class="qstep" data-bars="3" data-label="Step 3 of 3">
+</form>
+<form class="qstep" data-bars="3" data-label="Step 3 of 3" onsubmit="qecho('mob3','sent-to','your mobile');qstep(4);return false" novalidate>
 <h2>Where shall we send them?</h2>
 <p>Your mobile number is enough. We send a 4 digit code to confirm it is you.</p>
 <div class="qf">
@@ -186,19 +184,18 @@ onclick="qnames('g-reg','sum-reg','Anywhere in Mauritius');qnames('g-freq','sum-
 <label for="em3">Email, if you want them there too</label>
 <input id="em3" type="email" placeholder="you@example.com" autocomplete="email">
 </div>
-<button class="btn btn-teal btn-block qcta" type="button"
-onclick="qecho('mob3','sent-to','your mobile');qstep(4)">Send me a code</button>
+<button class="btn btn-teal btn-block qcta" type="submit">Send me a code</button>
 <p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg><span>Your number is your account. No password to remember, and we never show it to employers.</span></p>
 <button class="qback" type="button" onclick="qstep(2)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Back</button>
-</div>
-<div class="qstep" data-bars="3" data-label="Step 3 of 3">
+</form>
+<form class="qstep" data-bars="3" data-label="Step 3 of 3" onsubmit="qstep(5);return false" novalidate>
 <h2>Enter the 4 digit code</h2>
 <p>Sent by SMS to <b id="sent-to">your mobile</b>. It sets up your account at the same time.</p>
 <div class="qotp"><input id="a1" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1"><input id="a2" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2"><input id="a3" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3"><input id="a4" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4"></div>
 <p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><span>Nothing yet? <a href="#" onclick="return false">Send it again</a>, or check the number you typed.</span></p>
-<button class="btn btn-teal btn-block qcta" type="button" onclick="qstep(5)">Turn on my alerts</button>
+<button class="btn btn-teal btn-block qcta" type="submit">Turn on my alerts</button>
 <button class="qback" type="button" onclick="qstep(3)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Change my number</button>
-</div>
+</form>
 <div class="qstep qdone" data-bars="3" data-label="All done">
 <span class="tick-lg"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>
 <h2>Your alerts are on</h2>
@@ -249,6 +246,7 @@ onclick="qecho('mob3','sent-to','your mobile');qstep(4)">Send me a code</button>
 <p class="footer-note">Myjob is a registered trademark of My Web Ltd under company number C06067547 registered in the Republic of Mauritius. All rights reserved. 2026. Concept mockup prepared for review.</p>
 </div>
 </footer>
+<script src="site.js"></script>
 <script>
 function qstep(n){
 var box=document.getElementById('qbox'),i;
@@ -262,7 +260,7 @@ if(lab){
 var set=pane&&pane.getAttribute('data-label');
 lab.textContent=set||(fill>bars.length?'All done':'Step '+fill+' of '+bars.length);
 }
-window.scrollTo({top:0,behavior:'smooth'});
+stepFocus(pane,box);
 }
 function qecho(inputId,outId,fallback){
 var el=document.getElementById(inputId),out=document.getElementById(outId);
@@ -303,20 +301,6 @@ var sel=g.querySelectorAll('.opt[aria-pressed=true] .opt__name'),names=[];
 for(var i=0;i<sel.length;i++){names.push(sel[i].textContent.trim())}
 out.textContent=names.length?names.join(', '):fallback;
 }
-function qotp(ids){
-ids.forEach(function(id,i){
-var el=document.getElementById(id);
-if(!el)return;
-el.addEventListener('input',function(){
-el.value=el.value.replace(/[^0-9]/g,'');
-if(el.value&&i<ids.length-1){document.getElementById(ids[i+1]).focus()}
-});
-el.addEventListener('keydown',function(e){
-if(e.key==='Backspace'&&!el.value&&i>0){document.getElementById(ids[i-1]).focus()}
-});
-});
-}
-qotp(['a1','a2','a3','a4']);</script>
-<script src="site.js"></script>
+otpGroup(['a1','a2','a3','a4'],function(){qstep(5)});</script>
 </body>
 </html>

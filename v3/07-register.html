@@ -53,7 +53,7 @@
 .auth__back:hover{color:var(--teal-deep)}
 .auth__back svg{transform:rotate(180deg)}
 .auth__form{width:100%;max-width:520px}
-.auth__form h1{font-size:clamp(1.8rem,2vw + 1rem,2.4rem)}
+.auth__form h1,.auth__form h2{font-size:clamp(1.8rem,2vw + 1rem,2.4rem)}
 .auth-sub{color:var(--text-muted);font-size:.98rem;margin-top:8px}
 .f{margin-bottom:16px}
 .f > label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
@@ -207,7 +207,7 @@
 </div>
 <div class="stepv" id="s2">
 <button class="back" type="button" id="backto1">&larr; Change my number</button>
-<h1 style="margin-top:16px">Confirm your number</h1>
+<h2 style="margin-top:16px">Confirm your number</h2>
 <p class="auth-sub">We have sent a 4 digit code to <strong id="shownum">+230 5xxx xxxx</strong>.</p>
 <form onsubmit="return false" novalidate>
 <div class="otp">
@@ -222,7 +222,7 @@
 </div>
 <div class="stepv" id="s3">
 <span class="tick-lg"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>
-<h1>Your account is ready</h1>
+<h2>Your account is ready</h2>
 <p class="auth-sub">You can apply to any job that does not ask for a CV straight away. Add the rest when you are ready.</p>
 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
 <a class="btn btn-sun" href="03-my-first-job-jobs.html">Browse jobs</a>
@@ -233,6 +233,7 @@
 </div>
 </section>
 </main>
+<script src="site.js"></script>
 <script>
 function pwToggle(inputId,btnId){
 var pw=document.getElementById(inputId),t=document.getElementById(btnId);
@@ -243,23 +244,11 @@ pw.type=show?'text':'password';
 t.setAttribute('aria-label',show?'Hide password':'Show password');
 });
 }
-function otpGroup(ids){
-ids.forEach(function(id,i){
-var el=document.getElementById(id);
-if(!el)return;
-el.addEventListener('input',function(){
-el.value=el.value.replace(/[^0-9]/g,'');
-if(el.value&&i<ids.length-1){document.getElementById(ids[i+1]).focus()}
-});
-el.addEventListener('keydown',function(e){
-if(e.key==='Backspace'&&!el.value&&i>0){document.getElementById(ids[i-1]).focus()}
-});
-});
-}
 function stepper(ids){
 return function(id){
 ids.forEach(function(s){document.getElementById(s).classList.toggle('on',s===id)});
-window.scrollTo({top:0,behavior:'smooth'});
+var pane=document.getElementById(id);
+stepFocus(pane,pane);
 };
 }
 (function(){
@@ -273,17 +262,16 @@ li.classList.toggle('ok',tests[li.getAttribute('data-rule')](pw.value));
 });
 });
 pwToggle('pw','pwtoggle');
-otpGroup(['o1','o2','o3','o4']);
 var show=stepper(['s1','s2','s3']);
+otpGroup(['o1','o2','o3','o4'],function(){show('s3')});
 document.getElementById('createbtn').addEventListener('click',function(){
 var n=document.getElementById('tel').value.trim();
 document.getElementById('shownum').textContent=document.getElementById('cc').value+' '+(n||'5xxx xxxx');
-show('s2');document.getElementById('o1').focus();
+show('s2');
 });
 document.getElementById('backto1').addEventListener('click',function(){show('s1')});
 document.getElementById('verifybtn').addEventListener('click',function(){show('s3')});
 })();
 </script>
-<script src="site.js"></script>
 </body>
 </html>
