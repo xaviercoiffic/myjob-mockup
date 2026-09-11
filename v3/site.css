@@ -24,6 +24,7 @@ h3{font-size:clamp(1.05rem,.7vw + .85rem,1.3rem)}
 .section{padding:64px 0}
 .section-tight{padding:40px 0}
 .lead{font-size:1.06rem;color:var(--text-muted);max-width:62ch}
+.h-sm{font-size:clamp(1.15rem,.6vw + .95rem,1.4rem)}
 .eyebrow{font-family:var(--font-h);font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
 .center{text-align:center}
 .mx{margin-left:auto;margin-right:auto}
