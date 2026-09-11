@@ -129,7 +129,10 @@ h3{font-size:clamp(1.05rem,.7vw + .85rem,1.3rem)}
 .job-card__meta span{display:inline-flex;align-items:center;gap:6px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:.75rem;font-weight:600;color:var(--text-muted);border:1px solid var(--line-soft);border-radius:var(--r-pill);padding:5px 12px;background:var(--page)}
-.pill{font-family:var(--font-h);font-weight:800;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:var(--r-pill);white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-h);font-weight:800;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:var(--r-pill);white-space:nowrap}
+.pill svg{width:11px;height:11px;stroke-width:2.4}
+.job-card__pills .pill-type{background:var(--aqua-3);color:var(--teal-deep)}
+.job-card__pills .pill-seasonal{background:var(--coral-tint);color:var(--coral)}
 .pill-type{background:#C3EBEB;color:var(--navy)}
 .pill-first{background:var(--sun-2);color:var(--navy)}
 .pill-seasonal{background:var(--coral);color:#fff}

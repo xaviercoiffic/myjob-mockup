@@ -21,10 +21,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
-.auth{display:grid;grid-template-columns:1.04fr 1fr;min-height:100vh;background:var(--page)}
-@media(max-width:1000px){.auth{grid-template-columns:1fr;min-height:0}}
-.auth__media{position:relative;overflow:hidden;background:var(--navy);min-height:100%}
-@media(max-width:1000px){.auth__media{min-height:250px}}
+.auth{display:grid;grid-template-columns:1.04fr 1fr;height:100vh;background:var(--page)}
+@media(max-width:1000px){.auth{grid-template-columns:1fr;height:auto}}
+.auth__media{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--navy)}
+@media(max-width:1000px){.auth__media{position:static;height:auto;min-height:250px}}
 .auth__logo{position:absolute;z-index:3;top:32px;left:48px;display:inline-flex}
 .auth__logo img{height:32px;width:auto}
 @media(max-width:1000px){.auth__logo{top:20px;left:24px}.auth__logo img{height:26px}}
@@ -40,17 +40,14 @@
 .auth__ticks{list-style:none;display:flex;flex-direction:column;gap:10px}
 .auth__ticks li{display:flex;gap:10px;align-items:flex-start;color:#fff;font-weight:600;font-size:.97rem}
 .auth__ticks svg{color:var(--aqua);margin-top:4px}
-.statrow{display:flex;flex-wrap:wrap;gap:10px}
-.statchip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:var(--r-pill);padding:8px 15px;font-weight:700;font-size:.85rem;backdrop-filter:blur(6px)}
-.statchip svg{color:var(--sun-2)}
 .qcard{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);border-radius:22px;padding:18px 20px;color:#fff;backdrop-filter:blur(8px);display:flex;gap:14px;align-items:flex-start;max-width:460px}
 .qcard img{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none}
 .qcard p{color:#fff;font-size:.94rem;margin-bottom:6px}
 .qcard b{font-family:var(--font-h);font-size:.88rem}
 .qcard small{color:#BFD3E2;font-size:.82rem;display:block}
-@media(max-width:1000px){.auth__ticks,.qcard,.statrow{display:none}.auth__inner h2{font-size:1.5rem}}
-.auth__panel{display:flex;align-items:center;justify-content:center;padding:56px 40px}
-@media(max-width:1000px){.auth__panel{padding:40px 28px}}
+@media(max-width:1000px){.auth__ticks,.qcard{display:none}.auth__inner h2{font-size:1.5rem}}
+.auth__panel{display:flex;align-items:center;justify-content:center;padding:56px 40px;max-height:100vh;overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:1000px){.auth__panel{padding:40px 28px;max-height:none;overflow:visible}}
 @media(max-width:600px){.auth__panel{padding:30px 18px}}
 .auth__back{display:inline-flex;align-items:center;gap:8px;color:var(--text-muted);text-decoration:none;font-weight:700;font-size:.9rem;margin-bottom:22px}
 .auth__back:hover{color:var(--teal-deep)}
@@ -145,10 +142,6 @@
 <a class="auth__logo" href="01-homepage.html"><img src="logo-myjob-white.svg" alt="myjob.mu" width="150" height="37"></a>
 <img src="img/register-candidate.jpg" alt="A young candidate checking MyJob on her phone outside a shopping centre in Mauritius" width="900" height="1200">
 <div class="auth__inner">
-<div class="statrow">
-<span class="statchip"><svg class="icon" aria-hidden="true"><use href="#i-case"></use></svg>1,468 live jobs today</span>
-<span class="statchip"><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>214 jobs with no CV needed</span>
-</div>
 <h2>Your first job is a few taps away</h2>
 <ul class="auth__ticks"><li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Apply with no CV on first jobs and seasonal work</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Alerts by SMS the moment a matching job goes live</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg><span>Employers answer you through MyJob, nothing gets lost</span></li></ul>
 <div class="qcard">
