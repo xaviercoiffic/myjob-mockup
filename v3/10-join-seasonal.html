@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create your account | Seasonal jobs | MyJob.mu</title>
+<meta name="description" content="Create a free MyJob account for holiday work in three quick steps. No CV, no password, just your mobile number.">
+<link rel="canonical" href="https://www.myjob.mu/seasonal-jobs/join">
+<meta property="og:title" content="Create your account | Seasonal jobs | MyJob.mu">
+<meta property="og:description" content="Create a free MyJob account for holiday work in three quick steps. No CV, no password, just your mobile number.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.myjob.mu/seasonal-jobs/join">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"MyJob","url":"https://www.myjob.mu/","logo":"https://www.myjob.mu/logo.svg","description":"Mauritius' leading recruitment platform."}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="logo-m.svg">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.qband{padding:34px 0 64px}
+.qband--first{background:linear-gradient(165deg,#FFF3DF 0%,#FDE3AE 42%,#F8FCFF 100%)}
+.qband--seas{background:linear-gradient(165deg,#FFE7DC 0%,#FBC9B2 42%,#F8FCFF 100%)}
+.qband--alert{background:linear-gradient(165deg,#96DBE0 0%,#C0EAE9 42%,#F8FCFF 100%)}
+.qhead{max-width:640px;margin:0 auto 20px;text-align:center}
+.qhead h1{font-size:clamp(1.7rem,2.2vw + .9rem,2.5rem);margin:10px 0 8px}
+.qhead p{color:var(--text-muted)}
+.qbox{--accent:var(--teal-deep);--accent-tint:var(--teal-tint);
+max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+padding:28px;box-shadow:0 18px 40px rgba(11,35,64,.08)}
+@media(max-width:600px){.qbox{padding:20px 18px}}
+.qbox--first{--accent:var(--sun-1);--accent-tint:var(--sun-tint)}
+.qbox--seas{--accent:var(--coral);--accent-tint:var(--coral-tint)}
+.qprog{display:flex;gap:6px;margin-bottom:8px}
+.qprog span{flex:1;height:6px;border-radius:var(--r-pill);background:var(--line-soft)}
+.qprog span.on{background:var(--accent)}
+.qprog-label{font-family:var(--font-h);font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.qstep{display:none}
+.qstep.on{display:block;animation:qfade .3s var(--ease)}
+@keyframes qfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.qstep h2{font-size:1.35rem;margin:14px 0 6px}
+.qstep > p{color:var(--text-muted);font-size:.96rem;margin-bottom:18px}
+.qback{background:none;border:0;color:var(--teal-deep);font-family:var(--font-b);font-weight:700;font-size:.92rem;cursor:pointer;padding:10px 0 0;display:inline-flex;align-items:center;gap:7px}
+.qback svg{transform:rotate(180deg)}
+.qnote{display:flex;gap:9px;align-items:flex-start;color:var(--text-muted);font-size:.86rem;margin-top:14px}
+.qnote svg{margin-top:3px;flex:none;color:var(--accent)}
+.optgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.optgrid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:600px){.optgrid,.optgrid-3{grid-template-columns:1fr}}
+.opt{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:14px;padding:11px 14px;
+font-family:var(--font-b);font-size:.93rem;font-weight:600;color:var(--navy);cursor:pointer}
+.opt__box{width:21px;height:21px;border-radius:7px;border:2px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center;color:#fff}
+.opt__box svg{width:12px;height:12px;opacity:0}
+.opt__name{min-width:0}
+.opt b{margin-left:auto;padding-left:8px;font-family:var(--font-h);font-size:.76rem;font-weight:700;color:var(--text-muted)}
+.opt[aria-pressed=true]{border-color:var(--accent);background:var(--accent-tint)}
+.opt[aria-pressed=true] .opt__box{background:var(--accent);border-color:var(--accent)}
+.opt[aria-pressed=true] .opt__box svg{opacity:1}
+.opt-radio .opt__box{border-radius:50%}
+.qf{margin-bottom:16px}
+.qf > label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
+.qf input,.qf select{width:100%;padding:15px 16px;border:2px solid var(--line);border-radius:16px;font-family:var(--font-b);font-size:1rem;color:var(--text);background:#fff}
+.qf input:focus,.qf select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(0,158,181,.12)}
+.qf input::placeholder{color:#9BAEBF}
+.qtel{display:flex;gap:10px}
+.qtel select{flex:0 0 116px;padding-right:8px}
+.qotp{display:flex;gap:12px;margin:4px 0 10px}
+.qotp input{width:100%;height:74px;text-align:center;font-family:var(--font-h);font-weight:800;font-size:1.7rem;border:2px solid var(--line);border-radius:18px;color:var(--navy)}
+.qotp input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(0,158,181,.12)}
+.qcta{margin-top:20px}
+.qcount{font-size:.88rem;color:var(--text-muted);font-weight:700;margin-top:12px}
+.qdone{text-align:center}
+.qdone .tick-lg{width:78px;height:78px;border-radius:50%;background:var(--accent-tint);color:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.qdone .tick-lg svg{width:36px;height:36px}
+.qsum{background:var(--page);border:1px solid var(--line-soft);border-radius:16px;padding:16px;text-align:left;margin:18px 0}
+.qsum b{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
+.qbtns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+.qalt{text-align:center;font-size:.94rem;color:var(--text-muted);margin-top:18px}
+.qalt a{font-weight:700}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 20v-2a4 4 0 00-3-3.87"/></symbol>
+<symbol id="i-case" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></symbol>
+<symbol id="i-build" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+<symbol id="i-mega" viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 001 1h3l6 4V6L7 10H4a1 1 0 00-1 1z"/><path d="M17 9a4 4 0 010 6"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M4 20c0-8 6-14 16-14 0 10-6 14-12 14H4z"/><path d="M9 15c2-3 4-5 7-6"/></symbol>
+<symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10h18M5 10v8M10 10v8M14 10v8M19 10v8M3 20h18M12 3L3 8h18z"/></symbol>
+<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="2" y="14" width="4" height="6" rx="1.5"/><rect x="18" y="14" width="4" height="6" rx="1.5"/></symbol>
+<symbol id="i-grad" viewBox="0 0 24 24"><path d="M2 8l10-4 10 4-10 4z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M18.4 5.6l-2 2M7.6 16.4l-2 2M18.4 18.4l-2-2M7.6 7.6l-2-2"/></symbol>
+<symbol id="i-plate" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M15 4l5 5L8 21H3v-5z"/><path d="M13 6l5 5"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20 9c0 6-8 11-8 11S4 15 4 9a4.4 4.4 0 018-2.4A4.4 4.4 0 0120 9z"/></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M2 20h20"/></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></symbol>
+<symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l6 4V10l6 4V6h6v15z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/></symbol>
+<symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M12 3c2.5 2 2.5 5 0 6.5C9.5 8 9.5 5 12 3zM12 21c-2.5-2-2.5-5 0-6.5 2.5 1.5 2.5 4.5 0 6.5zM3 12c2-2.5 5-2.5 6.5 0C8 14.5 5 14.5 3 12zM21 12c-2 2.5-5 2.5-6.5 0 1.5-2.5 4.5-2.5 6.5 0z"/></symbol>
+<symbol id="i-plane" viewBox="0 0 24 24"><path d="M10 3l2 7 9 2-9 2-2 7-2-7-6-2 6-2z"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 7l10 6 10-6"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+</defs></svg>
+<header class="site-header">
+<div class="container">
+<a class="logo" href="01-homepage.html"><img src="logo-myjob-white.svg" alt="myjob.mu" width="150" height="37"></a>
+<button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
+<ul class="nav-links" id="primary-nav">
+<li><a href="03-my-first-job-jobs.html">Browse Jobs <svg class="icon" style="width:13px;height:13px" aria-hidden="true"><use href="#i-chev"></use></svg></a></li>
+<li><a href="01-homepage.html#sections">Candidates <svg class="icon" style="width:13px;height:13px" aria-hidden="true"><use href="#i-chev"></use></svg></a></li>
+<li><a href="01-homepage.html#recruiters">Recruiters <svg class="icon" style="width:13px;height:13px" aria-hidden="true"><use href="#i-chev"></use></svg></a></li>
+<li><a href="01-homepage.html#advice">Advice</a></li>
+</ul>
+</div>
+</header>
+<main>
+<section class="qband qband--seas">
+<div class="container">
+<div class="qhead">
+<p class="eyebrow">Seasonal jobs</p>
+<h1>Create your account</h1>
+<p>Three steps, about a minute. Then apply to any seasonal job.</p>
+</div>
+<div class="qbox qbox--seas" id="qbox">
+<p class="qprog-label" id="qlabel">Step 1 of 3</p>
+<div class="qprog" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+<div class="qstep on">
+<h2>Start with your name and number</h2>
+<p>Two fields, then a code by SMS. The season fills up fast.</p>
+<div class="sso">
+<a href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.4a5.5 5.5 0 01-2.4 3.6v3h3.9c2.3-2.1 3.6-5.2 3.6-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-3l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0012 24z"/><path fill="#FBBC05" d="M5.3 14.2a7.2 7.2 0 010-4.6V6.5H1.3a12 12 0 000 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.4.6 4.6 1.8l3.5-3.5C17.9 1.2 15.2 0 12 0A12 12 0 001.3 6.5l4 3.1c.9-2.9 3.6-4.8 6.7-4.8z"/></svg> Google</a>
+<a href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F25022" d="M1 1h10.2v10.2H1z"/><path fill="#7FBA00" d="M12.8 1H23v10.2H12.8z"/><path fill="#00A4EF" d="M1 12.8h10.2V23H1z"/><path fill="#FFB900" d="M12.8 12.8H23V23H12.8z"/></svg> Microsoft</a>
+<a href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8.3 18.7H5.4V9.7h2.9v9zM6.9 8.4a1.7 1.7 0 110-3.4 1.7 1.7 0 010 3.4zm11.8 10.3h-2.9v-4.4c0-1.1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.5H9.7v-9h2.8v1.2h.1a3.1 3.1 0 012.8-1.5c3 0 3.5 1.9 3.5 4.5v4.8z"/></svg> LinkedIn</a>
+</div>
+<p class="sep">or use your mobile number</p>
+<div class="qf">
+<label for="fn">First name</label>
+<input id="fn" type="text" placeholder="Your first name" autocomplete="given-name">
+</div>
+<div class="qf">
+<label for="mob">Mobile number</label>
+<div class="qtel">
+<label class="sr-only" for="cc">Country code</label>
+<select id="cc"><option>+230</option><option>+262</option><option>+33</option></select>
+<input id="mob" type="tel" inputmode="numeric" placeholder="5xxx xxxx" autocomplete="tel">
+</div>
+</div>
+<button class="btn btn-coral btn-block qcta" type="button" onclick="qstep(2)">Send me a code</button>
+<p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg><span>Your number is your account. No password to remember, and we never show it on your applications.</span></p>
+</div>
+<div class="qstep">
+<h2>Enter the 4 digit code</h2>
+<p>We have sent it by SMS to your mobile. It arrives in a few seconds.</p>
+<div class="qotp"><input id="p1" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1"><input id="p2" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2"><input id="p3" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3"><input id="p4" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4"></div>
+<p class="qnote"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg><span>Nothing yet? <a href="#" onclick="return false">Send it again</a>, or check the number you typed.</span></p>
+<button class="btn btn-coral btn-block qcta" type="button" onclick="qstep(3)">Confirm</button>
+<button class="qback" type="button" onclick="qstep(1)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Change my number</button>
+</div>
+<div class="qstep">
+<h2>When can you work?</h2>
+<p>Pick everything that suits you. Employers see this before they call.</p>
+<div class="optgrid" id="g-when"><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-when',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Weekends</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-when',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Evenings</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-when',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Weekdays</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-when',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">December only</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-when',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">The whole season</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-when',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Any shift</span></button></div>
+<p class="qcount" data-count="g-when">Choose at least one to carry on.</p>
+<div class="qf" style="margin-top:16px">
+<label for="reg2">Where can you travel to?</label>
+<select id="reg2">
+<option>Anywhere in Mauritius</option><option>Plaines Wilhems</option><option>Port Louis</option>
+<option>Moka</option><option>Pamplemousses</option><option>Black River</option>
+<option>Flacq</option><option>Grand Port</option><option>Savanne</option>
+<option>Rivi&#232;re du Rempart</option><option>Rodrigues</option>
+</select>
+</div>
+<button class="btn btn-coral btn-block qcta" type="button" data-cta="g-when" disabled
+onclick="qnames('g-when','sum-when','');qstep(4)">Create my account</button>
+<button class="qback" type="button" onclick="qstep(2)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Back</button>
+</div>
+<div class="qstep qdone">
+<span class="tick-lg"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span>
+<h2>Your account is ready</h2>
+<p>Apply to any seasonal job in four questions, no CV needed.</p>
+<div class="qsum"><b>Available</b><span id="sum-when">Weekends</span></div>
+<div class="qbtns">
+<a class="btn btn-coral" href="03-my-first-job-jobs.html">See 168 seasonal jobs</a>
+<a class="btn btn-ghost" href="11-job-alerts.html">Set up SMS alerts</a>
+</div>
+<p class="qalt">Looking for something permanent? <a href="02-my-first-job.html">Try My First Job</a></p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<a class="logo" href="01-homepage.html"><img src="logo-myjob.svg" alt="myjob.mu" width="150" height="37"></a>
+<p style="color:var(--text-muted);font-size:.92rem;margin-top:10px;max-width:32ch">Mauritius' leading recruitment platform. 1,468 live jobs today.</p>
+<div class="socials"><a href="https://www.facebook.com/myjob.mu" aria-label="MyJob on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a><a href="https://www.instagram.com/myjob.mu" aria-label="MyJob on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.43-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91C23.99 15.67 24 15.26 24 12s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0z"/><path d="M12 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg></a><a href="https://www.tiktok.com/@myjob.mu" aria-label="MyJob on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3 0 .58.04.86.13V9.4a6.33 6.33 0 0 0-5.72 10.67 6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52V6.69h-.66z"/></svg></a><a href="https://www.linkedin.com/company/myjob-mu" aria-label="MyJob on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+</div>
+<div><h4>New sections</h4><ul>
+<li><a href="02-my-first-job.html">My First Job</a></li>
+<li><a href="06-seasonal-jobs.html">Seasonal jobs</a></li>
+<li><a href="01-homepage.html#sections">Hotel jobs</a></li>
+<li><a href="01-homepage.html#sections">Skilled manual workers</a></li>
+<li><a href="01-homepage.html#sections">Jobs in Madagascar</a></li>
+</ul></div>
+<div><h4>Candidates</h4><ul>
+<li><a href="07-register.html">Register your account</a></li>
+<li><a href="03-my-first-job-jobs.html">Search first jobs</a></li>
+<li><a href="01-homepage.html#advice">Advice and guides</a></li>
+<li><a href="11-job-alerts.html">Job alerts</a></li>
+</ul></div>
+<div><h4>Recruiters</h4><ul>
+<li><a href="01-homepage.html#recruiters">Advertise a job</a></li>
+<li><a href="02-my-first-job.html#recruiters">List under My First Job</a></li>
+<li><a href="06-seasonal-jobs.html#recruiters">Seasonal hiring</a></li>
+<li><a href="01-homepage.html#recruiters">Contact us</a></li>
+</ul></div>
+</div>
+<p class="footer-note">Myjob is a registered trademark of My Web Ltd under company number C06067547 registered in the Republic of Mauritius. All rights reserved. 2026. Concept mockup prepared for review.</p>
+</div>
+</footer>
+<script>
+function qstep(n){
+var box=document.getElementById('qbox'),i;
+var panes=box.querySelectorAll('.qstep');
+for(i=0;i<panes.length;i++){panes[i].classList.toggle('on',i===n-1)}
+var bars=box.querySelectorAll('.qprog span');
+for(i=0;i<bars.length;i++){bars[i].classList.toggle('on',i<n)}
+var lab=document.getElementById('qlabel');
+if(lab){lab.textContent=n>bars.length?'All done':'Step '+n+' of '+bars.length}
+window.scrollTo({top:0,behavior:'smooth'});
+}
+function qsel(groupId,btn,single){
+var all=document.getElementById(groupId).querySelectorAll('.opt'),i;
+if(single){
+for(i=0;i<all.length;i++){all[i].setAttribute('aria-pressed','false')}
+btn.setAttribute('aria-pressed','true');
+}else{
+var was=btn.getAttribute('aria-pressed')==='true';
+btn.setAttribute('aria-pressed',was?'false':'true');
+if(!was){
+var wide=btn.getAttribute('data-any')==='1';
+for(i=0;i<all.length;i++){
+if(all[i]===btn)continue;
+if(wide||all[i].getAttribute('data-any')==='1'){all[i].setAttribute('aria-pressed','false')}
+}
+}
+}
+qrefresh(groupId);
+}
+function qrefresh(groupId){
+var g=document.getElementById(groupId);
+if(!g)return;
+var n=g.querySelectorAll('.opt[aria-pressed=true]').length;
+var out=document.querySelector('[data-count="'+groupId+'"]');
+if(out){out.textContent=n===0?'Choose at least one to carry on.':n+(n===1?' chosen':' chosen')}
+var cta=document.querySelector('[data-cta="'+groupId+'"]');
+if(cta){cta.disabled=n===0}
+}
+function qnames(groupId,outId,fallback){
+var g=document.getElementById(groupId),out=document.getElementById(outId);
+if(!g||!out)return;
+var sel=g.querySelectorAll('.opt[aria-pressed=true] .opt__name'),names=[];
+for(var i=0;i<sel.length;i++){names.push(sel[i].textContent.trim())}
+out.textContent=names.length?names.join(', '):fallback;
+}
+function qotp(ids){
+ids.forEach(function(id,i){
+var el=document.getElementById(id);
+if(!el)return;
+el.addEventListener('input',function(){
+el.value=el.value.replace(/[^0-9]/g,'');
+if(el.value&&i<ids.length-1){document.getElementById(ids[i+1]).focus()}
+});
+el.addEventListener('keydown',function(e){
+if(e.key==='Backspace'&&!el.value&&i>0){document.getElementById(ids[i-1]).focus()}
+});
+});
+}
+qotp(['p1','p2','p3','p4']);</script>
+<script src="site.js"></script>
+</body>
+</html>
