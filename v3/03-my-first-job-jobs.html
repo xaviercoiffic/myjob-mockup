@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
-.strip{background:linear-gradient(180deg,#FFD264 0%,#FDE3AE 46%,#FFF3DF 74%,var(--page) 96%);padding:30px 0 42px}
+.strip{background:linear-gradient(180deg,#6DC6CB 0%,#9BDCE0 38%,#CDEDEE 68%,var(--page) 94%);padding:30px 0 42px}
 .crumbs{font-size:.86rem;color:var(--text-muted);margin-bottom:12px}
 .crumbs a{color:var(--text-muted);text-decoration:none}
 .layout{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
@@ -29,12 +29,19 @@
 .filters h3{font-size:1rem;margin-bottom:10px}
 .fgroup{border-top:1px solid var(--line);padding:16px 0}
 .fgroup:first-of-type{border-top:0;padding-top:0}
+.fgroup summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;
+font-family:var(--font-h);font-weight:800;font-size:1rem;color:var(--navy);margin-bottom:6px}
+.fgroup summary::-webkit-details-marker{display:none}
+.fgroup summary::after{content:"";width:9px;height:9px;border-right:2.4px solid var(--navy);border-bottom:2.4px solid var(--navy);
+transform:rotate(-135deg);margin-top:4px;flex:none}
+.fgroup:not([open]) summary::after{transform:rotate(45deg);margin-top:-3px}
 .fgroup label{display:flex;align-items:center;gap:10px;font-size:.93rem;padding:5px 0;cursor:pointer}
 .fgroup input{width:17px;height:17px;accent-color:var(--teal-deep)}
 .results{flex:3 1 520px;display:flex;flex-direction:column;gap:16px}
 .results-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .sortpills{display:flex;gap:8px;flex-wrap:wrap}
-.sortpills button{border:1px solid var(--line);background:#fff;border-radius:var(--r-pill);padding:8px 16px;font-family:var(--font-h);font-weight:700;font-size:.85rem;cursor:pointer;color:var(--text-muted)}
+.sortpills button{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;border-radius:var(--r-pill);padding:8px 16px;font-family:var(--font-h);font-weight:700;font-size:.85rem;cursor:pointer;color:var(--text-muted)}
+.sortpills button svg{width:13px;height:13px;color:var(--sun-2)}
 .sortpills button[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
 .promo{background:linear-gradient(135deg,var(--navy),var(--navy-soft));color:#fff;border-radius:var(--r-lg);padding:24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .promo h3{color:#fff;flex:1 1 260px}
@@ -118,7 +125,7 @@
 <main>
 <section class="strip">
 <div class="container">
-<p class="crumbs"><a href="01-homepage.html">Home</a> &rsaquo; <a href="02-my-first-job.html">My First Job</a> &rsaquo; All jobs</p>
+<p class="crumbs"><a href="01-homepage.html">Home</a> &rsaquo; <a href="#">All jobs</a> &rsaquo; My First Job</p>
 <h1 style="font-size:clamp(1.8rem,3vw + .8rem,2.6rem)">214 jobs for people starting out</h1>
 <form class="searchbar" role="search" style="margin-top:18px" onsubmit="return false">
 <label class="sr-only" for="q3">Search first jobs</label>
@@ -132,11 +139,10 @@
 <div class="results-head" style="margin-bottom:18px">
 <div class="sortpills" data-pillgroup>
 <button type="button" aria-pressed="false">All jobs</button>
-<button type="button" aria-pressed="true">My First Job 214</button>
+<button type="button" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>My First Job 214</button>
 <button type="button" aria-pressed="false">Seasonal 168</button>
 <button type="button" aria-pressed="false">Hotel</button>
-<button type="button" aria-pressed="false">Skilled trades</button>
-<button type="button" aria-pressed="false">Near me</button>
+<button type="button" aria-pressed="false">Manual worker</button>
 </div>
 <button class="btn btn-ghost btn-sm filters-toggle" type="button" onclick="document.getElementById('filters').classList.toggle('open')"><svg class="icon" aria-hidden="true"><use href="#i-filter"></use></svg>Filters</button>
 </div>
@@ -146,30 +152,40 @@
 <h3 style="margin-bottom:0">Filter</h3>
 <button class="filters__close" type="button" aria-label="Close filters" onclick="document.getElementById('filters').classList.remove('open')">&#10005;</button>
 </div>
-<div class="fgroup">
-<h4 style="font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:6px">Type of work</h4>
-<label><input type="checkbox" checked> Full-time</label>
+<details class="fgroup" open>
+<summary>Job Type</summary>
+<label><input type="checkbox"> Full-time</label>
 <label><input type="checkbox"> Part-time</label>
+<label><input type="checkbox"> Fixed-term contract (CDD)</label>
+<label><input type="checkbox"> Temporary</label>
 <label><input type="checkbox"> Seasonal</label>
 <label><input type="checkbox"> Internship</label>
-</div>
-<div class="fgroup">
-<h4 style="font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:6px">Region</h4>
-<label><input type="checkbox"> Plaines Wilhems (62)</label>
-<label><input type="checkbox"> Port Louis (48)</label>
-<label><input type="checkbox"> Moka (31)</label>
-<label><input type="checkbox"> Pamplemousses (27)</label>
-<label><input type="checkbox"> Black River (19)</label>
-<label><input type="checkbox"> Flacq (14)</label>
-</div>
-<div class="fgroup">
-<h4 style="font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:6px">Kind of job</h4>
-<label><input type="checkbox"> Retail and sales (54)</label>
-<label><input type="checkbox"> Hotels and restaurants (49)</label>
-<label><input type="checkbox"> Admin and office (38)</label>
-<label><input type="checkbox"> Call centre (26)</label>
-<label><input type="checkbox"> Warehouse and delivery (21)</label>
-</div>
+<label><input type="checkbox"> Freelance</label>
+</details>
+<details class="fgroup" open>
+<summary>Salary Range</summary>
+<label><input type="checkbox"> Less than 10,000</label>
+<label><input type="checkbox"> 10,000 &#8211; 20,000</label>
+<label><input type="checkbox"> 21,000 &#8211; 30,000</label>
+<label><input type="checkbox"> 31,000 &#8211; 40,000</label>
+<label><input type="checkbox"> 41,000 &#8211; 50,000</label>
+<label><input type="checkbox"> 51,000 &#8211; 75,000</label>
+<label><input type="checkbox"> 76,000 &#8211; 100,000</label>
+<label><input type="checkbox"> More than 100,000</label>
+</details>
+<details class="fgroup" open>
+<summary>Regions</summary>
+<label><input type="checkbox"> Black River</label>
+<label><input type="checkbox"> Flacq</label>
+<label><input type="checkbox"> Grand Port</label>
+<label><input type="checkbox"> Moka</label>
+<label><input type="checkbox"> Pamplemousses</label>
+<label><input type="checkbox"> Plaines Wilhems</label>
+<label><input type="checkbox"> Port Louis</label>
+<label><input type="checkbox"> Rivi&#232;re du Rempart</label>
+<label><input type="checkbox"> Rodrigues</label>
+<label><input type="checkbox"> Savanne</label>
+</details>
 <button class="btn btn-teal btn-block btn-sm" type="button" style="margin-top:8px" onclick="document.getElementById('filters').classList.remove('open')">Show 214 jobs</button>
 </aside>
 <div class="results">
@@ -183,10 +199,11 @@
 </div>
 <div class="job-card__meta">
 <span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Moka</span>
-<span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 14,000 to Rs 17,000</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 14,000 &#8211; Rs 17,000</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Posted Sep 8, 2026</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Closing 12/10/2026</span>
 </div>
-<div class="chips"><span class="chip">Retail</span><span class="chip">No experience needed</span><span class="chip">Training given</span></div>
+<div class="chips"><span class="chip">Retail / Wholesale</span><span class="chip">Shop Assistant</span><span class="chip">Sales Assistant</span><span class="chip">Store Crew</span></div>
 <a class="btn btn-teal btn-block" href="04-job-detail.html">View details</a>
 </article>
 <article class="job-card">
@@ -200,9 +217,10 @@
 <div class="job-card__meta">
 <span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Moka</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 12,500 per month</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Posted Sep 10, 2026</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Closing 30/10/2026</span>
 </div>
-<div class="chips"><span class="chip">Retail</span><span class="chip">6 week contract</span></div>
+<div class="chips"><span class="chip">Retail / Wholesale</span><span class="chip">Sales Assistant</span><span class="chip">Christmas Casual</span><span class="chip">Till Operator</span></div>
 <a class="btn btn-teal btn-block" href="04-job-detail.html">View details</a>
 </article>
 <a class="adslot adslot-wide" href="#"><img src="img/ad-leaderboard.jpg" alt="Advertisement, seasonal staff wanted at Riche Terre Mall" width="1200" height="309" loading="lazy"><span>Advertising</span></a>
@@ -216,10 +234,11 @@
 </div>
 <div class="job-card__meta">
 <span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Rivière du Rempart</span>
-<span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 15,000 to Rs 18,000</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 15,000 &#8211; Rs 18,000</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Posted Sep 3, 2026</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Closing 17/09/2026</span>
 </div>
-<div class="chips"><span class="chip">Hotel</span><span class="chip">Reception</span><span class="chip">Shift work</span></div>
+<div class="chips"><span class="chip">Tourism / Travel</span><span class="chip">Front Office Agent</span><span class="chip">Receptionist</span><span class="chip">Guest Service Agent</span></div>
 <a class="btn btn-teal btn-block" href="04-job-detail.html">View details</a>
 </article>
 <article class="job-card">
@@ -232,10 +251,11 @@
 </div>
 <div class="job-card__meta">
 <span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Grand Port</span>
-<span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 16,000 to Rs 19,000</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 16,000 &#8211; Rs 19,000</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Posted Sep 5, 2026</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Closing 04/10/2026</span>
 </div>
-<div class="chips"><span class="chip">Administrative</span><span class="chip">School leavers welcome</span></div>
+<div class="chips"><span class="chip">Administrative / Clerical</span><span class="chip">Admin Assistant</span><span class="chip">Office Clerk</span><span class="chip">Data Entry Clerk</span></div>
 <a class="btn btn-teal btn-block" href="04-job-detail.html">View details</a>
 </article>
 <article class="job-card">
@@ -249,9 +269,10 @@
 <div class="job-card__meta">
 <span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Port Louis</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 15,500 plus bonus</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Posted Sep 9, 2026</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Closing 20/10/2026</span>
 </div>
-<div class="chips"><span class="chip">Call centre</span><span class="chip">French speaking</span><span class="chip">Training given</span></div>
+<div class="chips"><span class="chip">Call Centres / BPO</span><span class="chip">Customer Advisor</span><span class="chip">Call Centre Agent</span><span class="chip">Teleconseiller</span></div>
 <a class="btn btn-teal btn-block" href="04-job-detail.html">View details</a>
 </article>
 <article class="job-card">
@@ -265,9 +286,10 @@
 <div class="job-card__meta">
 <span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Black River</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cash"></use></svg>Rs 700 per shift</span>
+<span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Posted Sep 11, 2026</span>
 <span><svg class="icon" aria-hidden="true"><use href="#i-cal"></use></svg>Closing 28/10/2026</span>
 </div>
-<div class="chips"><span class="chip">Kitchen</span><span class="chip">Evenings</span></div>
+<div class="chips"><span class="chip">Food / Beverages / Catering</span><span class="chip">Kitchen Assistant</span><span class="chip">Commis de Cuisine</span><span class="chip">Kitchen Porter</span></div>
 <a class="btn btn-teal btn-block" href="04-job-detail.html">View details</a>
 </article>
 </div>
