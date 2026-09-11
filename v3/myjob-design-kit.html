@@ -127,6 +127,9 @@ h3{font-size:clamp(1.05rem,.7vw + .85rem,1.3rem)}
 .cat-chip b{font-weight:700;color:var(--text-muted);font-size:.74rem}
 .cat-chip svg{width:12px;height:12px}
 .cat-chip-all{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:700}
+.cat-chips-lg .cat-chip{padding:11px 19px;font-size:.92rem;box-shadow:0 4px 14px rgba(11,35,64,.07)}
+.cat-chips-lg .cat-chip svg{width:15px;height:15px;color:var(--teal-deep)}
+.cat-chips-lg .cat-chip-all svg{color:#fff}
 /* Single sign on */
 .sso{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:24px 0 20px}
 @media(max-width:520px){.sso{grid-template-columns:1fr}}
@@ -154,6 +157,8 @@ h3{font-size:clamp(1.05rem,.7vw + .85rem,1.3rem)}
 .job-card__pills .pill-type{background:var(--aqua-3);color:var(--teal-deep)}
 .job-card__pills .pill-seasonal{background:var(--coral-tint);color:var(--coral)}
 .pill-type{background:#C3EBEB;color:var(--navy)}
+.pill-flag{padding:5px 8px;padding-right:16px}
+.pill-flag svg{width:13px;height:13px}
 .pill-first{background:var(--sun-2);color:var(--navy);border-radius:7px;padding-right:17px;
 clip-path:polygon(0 0,100% 0,calc(100% - 9px) 50%,100% 100%,0 100%)}
 .pill-seasonal{background:var(--coral);color:#fff}
@@ -356,7 +361,7 @@ th{font-family:var(--font-h);font-size:.82rem;text-transform:uppercase;letter-sp
 <h3><a href="04-job-detail.html" style="color:var(--navy);text-decoration:none">Shop Assistant, Bagatelle</a></h3>
 <p class="job-card__company">Kendra Retail Ltd</p>
 </div>
-<div class="job-card__pills"><span class="pill pill-first"><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>My First Job</span><span class="pill pill-type">Full-time</span></div>
+<div class="job-card__pills"><span class="pill pill-first pill-flag" title="This employer also considers candidates with no experience"><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg><span class="sr-only">Open to candidates with no experience</span></span><span class="pill pill-type">Full-time</span></div>
 </div>
 <div class="job-card__meta">
 <span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Moka</span>

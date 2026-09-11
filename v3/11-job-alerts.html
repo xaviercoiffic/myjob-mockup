@@ -65,6 +65,8 @@ font-family:var(--font-b);font-size:.93rem;font-weight:600;color:var(--navy);cur
 .qf input,.qf select{width:100%;padding:15px 16px;border:2px solid var(--line);border-radius:16px;font-family:var(--font-b);font-size:1rem;color:var(--text);background:#fff}
 .qf input:focus,.qf select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(0,158,181,.12)}
 .qf input::placeholder{color:#9BAEBF}
+.qf-2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+@media(max-width:600px){.qf-2{grid-template-columns:1fr}}
 .qtel{display:flex;gap:10px}
 .qtel select{flex:0 0 116px;padding-right:8px}
 .qotp{display:flex;gap:12px;margin:4px 0 10px}
@@ -158,20 +160,30 @@ font-family:var(--font-b);font-size:.93rem;font-weight:600;color:var(--navy);cur
 <p class="qcount" data-count="g-cat">Choose at least one to carry on.</p>
 <button class="btn btn-teal btn-block qcta" type="submit" data-cta="g-cat" disabled>Continue</button>
 </form>
-<form class="qstep" onsubmit="qnames('g-reg','sum-reg','Anywhere in Mauritius');qnames('g-freq','sum-freq','');qstep(3);return false" novalidate>
+<form class="qstep" onsubmit="qnames('g-reg','sum-reg','Anywhere in Mauritius');qnames('g-sal','sum-salary','');qstep(3);return false" novalidate>
 <h2>Where do you want to work?</h2>
 <p>Choose the regions you can reach. Most people start with one or two.</p>
 <div class="optgrid" id="g-reg"><button class="opt" type="button" aria-pressed="true" data-any="1" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Anywhere in Mauritius</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Plaines Wilhems</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Port Louis</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Moka</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Pamplemousses</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Black River</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Flacq</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Grand Port</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Savanne</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Rivi&#232;re du Rempart</span></button><button class="opt" type="button" aria-pressed="false" onclick="qsel('g-reg',this,false)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Rodrigues</span></button></div>
 <p class="qcount" data-count="g-reg">1 chosen</p>
-<h2 style="margin-top:26px">How often?</h2>
-<p>New jobs go live every morning. SMS alerts are free.</p>
-<div class="optgrid-3 optgrid" id="g-freq"><button class="opt opt-radio" type="button" aria-pressed="true" onclick="qsel('g-freq',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">As soon as a job is posted</span></button><button class="opt opt-radio" type="button" aria-pressed="false" onclick="qsel('g-freq',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Once a day</span></button><button class="opt opt-radio" type="button" aria-pressed="false" onclick="qsel('g-freq',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Once a week</span></button></div>
+<h2 style="margin-top:26px">What salary are you after?</h2>
+<p>We lead with the jobs that pay it. You still see the rest.</p>
+<div class="optgrid" id="g-sal"><button class="opt opt-radio" type="button" aria-pressed="false" onclick="qsel('g-sal',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Up to Rs 15,000</span></button><button class="opt opt-radio" type="button" aria-pressed="true" onclick="qsel('g-sal',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Rs 15,000 to Rs 25,000</span></button><button class="opt opt-radio" type="button" aria-pressed="false" onclick="qsel('g-sal',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Rs 25,000 to Rs 40,000</span></button><button class="opt opt-radio" type="button" aria-pressed="false" onclick="qsel('g-sal',this,true)"><span class="opt__box"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><span class="opt__name">Rs 40,000 and above</span></button></div>
 <button class="btn btn-teal btn-block qcta" type="submit" data-cta="g-reg">Continue</button>
 <button class="qback" type="button" onclick="qstep(1)"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg> Back</button>
 </form>
 <form class="qstep" data-bars="3" data-label="Step 3 of 3" onsubmit="qecho('mob3','sent-to','your mobile');qstep(4);return false" novalidate>
 <h2>Where shall we send them?</h2>
 <p>Your mobile number is enough. We send a 4 digit code to confirm it is you.</p>
+<div class="qf-2">
+<div class="qf">
+<label for="fn3">First name</label>
+<input id="fn3" type="text" placeholder="Your first name" autocomplete="given-name">
+</div>
+<div class="qf">
+<label for="ln3">Last name</label>
+<input id="ln3" type="text" placeholder="Your last name" autocomplete="family-name">
+</div>
+</div>
 <div class="qf">
 <label for="mob3">Mobile number</label>
 <div class="qtel">
@@ -203,7 +215,7 @@ font-family:var(--font-b);font-size:.93rem;font-weight:600;color:var(--navy);cur
 <div class="qsum">
 <b>Categories</b><span id="sum-cat">My First Job</span>
 <b style="margin-top:12px">Regions</b><span id="sum-reg">Anywhere in Mauritius</span>
-<b style="margin-top:12px">How often</b><span id="sum-freq">As soon as a job is posted</span>
+<b style="margin-top:12px">Salary</b><span id="sum-salary">Rs 15,000 to Rs 25,000</span>
 </div>
 <div class="qbtns">
 <a class="btn btn-teal" href="03-my-first-job-jobs.html">Browse jobs now</a>
