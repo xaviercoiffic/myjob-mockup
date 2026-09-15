@@ -127,6 +127,9 @@ h3{font-size:clamp(1.05rem,.7vw + .85rem,1.3rem)}
 /* Category chips under the search */
 .cat-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
 .cat-chips-left{justify-content:flex-start}
+.hero-act{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+.hero-act .cat-chips{margin-top:0}
+@media(max-width:700px){.hero-act{display:block}.hero-act > .btn{width:100%;margin-bottom:10px}}
 .cat-chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);padding:6px 13px;text-decoration:none;color:var(--navy);font-weight:600;font-size:.82rem;line-height:1.4}
 .cat-chip b{font-weight:700;color:var(--text-muted);font-size:.74rem}
 .cat-chip svg{width:12px;height:12px}
