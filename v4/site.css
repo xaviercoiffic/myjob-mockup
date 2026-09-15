@@ -111,9 +111,15 @@ h3{font-size:clamp(1.05rem,.7vw + .85rem,1.3rem)}
 }
 .cat-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
 .cat-chips-left{justify-content:flex-start}
-.hero-act{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}
-.hero-act .cat-chips{margin-top:0}
-@media(max-width:700px){.hero-act{display:block}.hero-act > .btn{width:100%;margin-bottom:10px}}
+.herowrap{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:36px;align-items:center}
+@media(max-width:900px){.herowrap{grid-template-columns:1fr;gap:24px}}
+.herocta{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 14px 34px rgba(11,35,64,.13)}
+.herocta img{display:block;width:100%;height:208px;object-fit:cover;object-position:50% 18%}
+.herocta__pad{padding:20px}
+.herocta__pad p{color:var(--text-muted);font-size:.92rem;margin:7px 0 15px}
+.herocta__list{list-style:none;display:flex;flex-direction:column;gap:8px;margin:11px 0 16px;font-size:.92rem;color:var(--text-muted)}
+.herocta__list li{display:flex;gap:8px;align-items:flex-start}
+.herocta__list svg{flex:none;margin-top:3px;color:var(--coral)}
 .cat-chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);padding:6px 13px;text-decoration:none;color:var(--navy);font-weight:600;font-size:.82rem;line-height:1.4}
 .cat-chip b{font-weight:700;color:var(--text-muted);font-size:.74rem}
 .cat-chip svg{width:12px;height:12px}
